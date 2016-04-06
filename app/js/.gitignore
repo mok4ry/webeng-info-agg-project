@@ -1,0 +1,4 @@
+# config file holding private API keys
+# copy config.js.template to config.js and
+# replace strings with your own API keys
+config.js

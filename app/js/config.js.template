@@ -1,0 +1,11 @@
+'use strict';
+
+const API_KEYS = {
+  NY_TIMES: {
+    ARTICLE_SEARCH: 'YOUR_API_KEY_HERE',
+    MOST_POPULAR: 'YOUR_API_KEY_HERE',
+    TOP_STORIES: 'YOUR_API_KEY_HERE',
+  },
+};
+
+export { API_KEYS };
