@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-
+import SourceFilter from './SourceFilter';
 
 class App extends React.Component {
   constructor() {
@@ -9,7 +9,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>Hello World</div>
+      <SourceFilter />
     )
   }
 }
