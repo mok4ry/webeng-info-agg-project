@@ -1,7 +1,8 @@
 'use strict';
 
 import React from 'react';
-import SourceFilter from './SourceFilter';
+import Header from './Header';
+import NewsFeed from './NewsFeed';
 
 class App extends React.Component {
   constructor() {
@@ -9,7 +10,10 @@ class App extends React.Component {
   }
   render() {
     return (
-      <SourceFilter />
+      <div>
+        <Header />
+        <NewsFeed />
+      </div>
     )
   }
 }

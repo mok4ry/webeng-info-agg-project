@@ -1,0 +1,13 @@
+.news-feed-container {
+ max-width: 800px;
+ margin: 0 auto;
+}
+
+.news-feed-container > h2 {
+  color: #004039;
+  text-align: center;
+}
+
+.news-feed-container > div {
+  text-align: center;
+}
