@@ -21,6 +21,7 @@ const INITIAL_STATE = {
   passError: false,
   userEmptyError: false,
   passEmptyError: false,
+  registered: false,
 };
 
 class LogInHeader extends React.Component {
@@ -44,8 +45,6 @@ class LogInHeader extends React.Component {
 
   passCorrect (username, password) {
     const pass = this.props.users[username];
-    console.log(pass);
-    console.log(password);
 
     if (!pass)
       return false
@@ -79,11 +78,13 @@ class LogInHeader extends React.Component {
     
     if (userExists)
       this.setState({nameError: true});
-    else
+    else {
+      this.setState({ registered: true });
       this.props.dispatch(addUser({
         name: this.refs.name.value,
         pass: this.refs.pass.value,
       }));
+    }
   }
 
   errorMsg (error, classes) {
@@ -125,10 +126,14 @@ class LogInHeader extends React.Component {
               Log In
             </button>
 
-            <button className="pure-button pure-button-secondary"
-                onClick={this.register}>
-              Register
-            </button>
+            {this.state.registered ?
+              <button className="pure-button pure-button-secondary" disabled>
+                Registered!
+              </button> :
+              <button className="pure-button pure-button-secondary"
+                  onClick={this.register}>
+                Register
+              </button>}
 
           </fieldset>
         </form>
