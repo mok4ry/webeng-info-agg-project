@@ -15,12 +15,15 @@ const ERRORS = {
   EMPTY_ERROR: 'Field is required',
 };
 
-const INITIAL_STATE = {
+const INITIAL_ERROR_STATE = {
   userError: false,
   nameError: false,
   passError: false,
   userEmptyError: false,
   passEmptyError: false,
+};
+
+const INITIAL_STATE = {
   registered: false,
 };
 
@@ -36,7 +39,7 @@ class LogInHeader extends React.Component {
     this.clearErrors = this.clearErrors.bind(this);
     this.passCorrect = this.passCorrect.bind(this);
 
-    this.state = INITIAL_STATE;
+    this.state = Object.assign({}, INITIAL_ERROR_STATE, INITIAL_STATE);
   }
 
   userExists (username) {
@@ -53,7 +56,7 @@ class LogInHeader extends React.Component {
   }
 
   clearErrors () {
-    this.setState(INITIAL_STATE);
+    this.setState(INITIAL_ERROR_STATE);
   }
 
   logIn (e) {
