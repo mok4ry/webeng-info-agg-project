@@ -4,7 +4,8 @@
   "description": "boiler-plate",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "moment": "^2.13.0"
   },
   "devDependencies": {
     "babel": "^6.5.1",

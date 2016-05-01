@@ -2,6 +2,16 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import thunk from 'redux-thunk';
 
+const users = {};
+const local = window.localStorage._infoAgg ?
+  JSON.parse(window.localStorage._infoAgg) : {};
+
+if (local.users) {
+  Object.keys(local.users).forEach(u => {
+    users[u] = local.users[u].pass;
+  });
+}
+
 const INITIAL_STATE = {
   sourceFilters: {
     US_NEWS: true,
@@ -10,6 +20,7 @@ const INITIAL_STATE = {
     WEATHER: false,
     TECH: false,
   },
+  users: users,
 };
 
 const store = createStore(
