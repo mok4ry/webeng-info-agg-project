@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.13.3",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "xml-parser": "^1.2.1"
   },
   "devDependencies": {
     "babel": "^6.5.1",
