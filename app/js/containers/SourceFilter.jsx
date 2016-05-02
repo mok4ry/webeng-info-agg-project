@@ -6,7 +6,8 @@ import SourceFilterButton from '../components/SourceFilterButton';
 
 function mapStateToProps(state) {
   return {
-    sources : state.sourceFilters
+    sources : state.sourceFilters,
+    auth: state.auth,
   };
 }
 
@@ -37,7 +38,10 @@ class SourceFilter extends React.Component {
   }
 
   render () {
-    const sourceButtons = Object.keys(this.props.sources).map(s => {
+    const sources = [ ...Object.keys(this.props.sources) ];
+    if (this.props.auth.user) sources.push('FAVORITES');
+
+    const sourceButtons = sources.map(s => {
       return <SourceFilterButton
                 key={s}
                 source={s}

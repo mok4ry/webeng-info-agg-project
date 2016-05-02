@@ -11,7 +11,7 @@ function pickSourceForMore(state) {
   let min = 9999;
   let source = '';
   Object.keys(loaded).forEach(s => {
-    if (loaded[s] !== 0 && loaded[s] < min) source = s;
+    if (s !== 'FAVORITE' && loaded[s] !== 0 && loaded[s] < min) source = s;
   });
   return source;
 } 

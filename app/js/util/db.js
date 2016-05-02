@@ -40,19 +40,21 @@ function getUserLastLogin(user) {
   return local.users[user].lastLogin;
 }
 
-function addFavoriteArticle(user, article) {
-  if (!local.users[user].faves) {
-    local.users[user].faves = [];
+function addFavoriteArticle(article) {
+  if (!local.users[loggedIn].faves) {
+    local.users[loggedIn].faves = {};
   }
-  local.users[user].faves.push(article);
+  local.users[loggedIn].faves[article].title = article;
   save();
 }
 
 function getFaveArticles() {
   if (!loggedIn || !local.users[loggedIn].faves)
     return [];
-  else
-    return local.users[loggedIn].faves;
+  else {
+    window.articles.FAVORITES = Object.keys(local.users[loggedIn].faves).map(t => local.users[loggedIn].faves[t]);
+    return window.articles.FAVORITES;
+  }
 }
 
 export {

@@ -80,11 +80,16 @@ function tech(callback) {
   xmlHttp.send(null);
 }
 
+function faves(callback) {
+  callback(getFaveArticles());
+}
+
 const QUERIES = {
   US_NEWS: usNews,
   WORLD_NEWS: worldNews,
   SPORTS: sports,
   TECH: tech,
+  FAVORITES: faves,
 };
 
 function getArticles(source, callback) {

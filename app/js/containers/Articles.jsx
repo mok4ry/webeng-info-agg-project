@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Article from '../components/Article';
-import { addFavoriteArticle } from '../util/db';
+import { addFave } from '../actions/auth';
 
 function mapStateToProps(state) {
   return {
@@ -20,7 +20,7 @@ class Articles extends React.Component {
   }
 
   favorite(article) {
-    addFavoriteArticle(this.props.auth.user, article);
+    this.props.dispatch(addFave(this.props.auth.user, article));
   }
 
   render() {
