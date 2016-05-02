@@ -19,7 +19,6 @@ const INITIAL_STATE = {
     US_NEWS: true,
     WORLD_NEWS: false,
     SPORTS: false,
-    WEATHER: false,
     TECH: false,
   },
   users: users,

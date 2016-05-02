@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectSource, deselectSource } from '../actions/sourceFilters';
+import { fetchArticles } from '../actions/articles';
 import SourceFilterButton from '../components/SourceFilterButton';
 
 function mapStateToProps(state) {
@@ -19,8 +20,11 @@ class SourceFilter extends React.Component {
   toggleSource (source) {
     if (this.props.sources[source])
       this.props.dispatch(deselectSource(source));
-    else
+    else {
+      if (!window.articles[source])
+        this.props.dispatch(fetchArticles(source));
       this.props.dispatch(selectSource(source));
+    }
   }
 
   render () {

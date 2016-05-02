@@ -15,7 +15,6 @@ class Articles extends React.Component {
     const articles = [];
     this.props.articles.forEach(a => {
       const split = a.split('.');
-      console.log(split);
       if (this.props.sourceFilters[split[0]]) {
         articles.push(window.articles[split[0]][split[1]]);
       }

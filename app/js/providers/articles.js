@@ -43,7 +43,7 @@ function sports(callback) {
   xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
       const items = xmlHttp.responseXML.querySelectorAll('item');
-      console.log(Object.keys(items).map(i => {
+      callback(Object.keys(items).map(i => {
         return {
           title: items[i].querySelector('title').innerHTML,
           link: items[i].querySelector('link').innerHTML,
@@ -63,7 +63,7 @@ function tech(callback) {
   xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
       const items = xmlHttp.responseXML.querySelectorAll('item');
-      console.log(Object.keys(items).map(i => {
+      callback(Object.keys(items).map(i => {
         return {
           title: items[i].querySelector('title').innerHTML,
           link: items[i].querySelector('link').innerHTML,
