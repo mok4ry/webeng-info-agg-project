@@ -33,9 +33,18 @@ function getUserLastLogin(user) {
   return local.users[user].lastLogin;
 }
 
+function addFavoriteArticle(user, article) {
+  if (!local.users[user].faves) {
+    local.users[user].faves = [];
+  }
+  local.users[user].faves.push(article);
+  save();
+}
+
 export {
   userExists,
   addNewUser,
   setUserLogin,
   getUserLastLogin,
+  addFavoriteArticle,
 };
