@@ -1,12 +1,21 @@
 import { getArticles } from '../providers/articles';
 
 export const ADD_ARTICLES = 'GET_ARTICLES';
+export const LOAD_MORE = 'LOAD_MORE';
 
 function addArticles(source, results) {
   return {
     type: ADD_ARTICLES,
     source,
     results,
+  };
+}
+
+export function loadMore() {
+  return dispatch => {
+    dispatch({
+      type: LOAD_MORE,
+    });
   };
 }
 

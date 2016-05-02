@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectSource, deselectSource } from '../actions/sourceFilters';
-import { fetchArticles } from '../actions/articles';
+import { fetchArticles, loadMore } from '../actions/articles';
 import SourceFilterButton from '../components/SourceFilterButton';
 
 function mapStateToProps(state) {
@@ -15,6 +15,15 @@ class SourceFilter extends React.Component {
     super();
 
     this.toggleSource = this.toggleSource.bind(this);
+  }
+
+  componentWillMount() {
+    const dispatch = this.props.dispatch;
+    window.onscroll = function(ev) {
+      if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight + 16)) {
+        dispatch(loadMore());
+      }
+    };
   }
 
   toggleSource (source) {
