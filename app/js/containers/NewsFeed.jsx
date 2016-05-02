@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SourceFilter from './SourceFilter';
+import Articles from './Articles';
 
 function mapStateToProps(state) {
   return {
@@ -15,6 +16,7 @@ class NewsFeed extends React.Component {
       <div className='news-feed-container'>
         <h2>News Feed</h2>
         <SourceFilter />
+        <Articles />
       </div>
     )
   }

@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducers';
 import thunk from 'redux-thunk';
 import parse from 'xml-parser';
+import { fetchArticles } from './actions/articles';
 
 const users = {};
 const local = window.localStorage._infoAgg ?
@@ -24,6 +25,8 @@ const INITIAL_STATE = {
   users: users,
 };
 
+window.articles = {};
+
 const store = createStore(
   reducer,
   INITIAL_STATE,
@@ -32,5 +35,7 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 )
+
+store.dispatch(fetchArticles('US_NEWS'));
 
 export default store;

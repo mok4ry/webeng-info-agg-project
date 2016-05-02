@@ -1,4 +1,4 @@
-function nyt(callback) {
+function usNews(callback) {
   const xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = () => {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -79,7 +79,7 @@ function tech(callback) {
 }
 
 const QUERIES = {
-  NY_TIMES: nyt,
+  US_NEWS: usNews,
   WORLD_NEWS: worldNews,
   SPORTS: sports,
   TECH: tech,

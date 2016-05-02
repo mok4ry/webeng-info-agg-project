@@ -1,5 +1,3 @@
-import { getArticles } from '../providers/articles';
-
 export const SELECT_SOURCE = 'SELECT_SOURCE';
 export const DESELECT_SOURCE = 'DESELECT_SOURCE';
 
