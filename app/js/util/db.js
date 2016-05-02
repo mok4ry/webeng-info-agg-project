@@ -5,6 +5,8 @@ const local = window.localStorage._infoAgg ?
     users: {},
   };
 
+let loggedIn = null;
+
 function save() {
   window.localStorage._infoAgg = JSON.stringify(local);
 }
@@ -24,9 +26,14 @@ function addNewUser(username, password) {
 }
 
 function setUserLogin(user) {
+  loggedIn = user;
   local.users[user].lastLogin = local.users[user].currentLogin;
   local.users[user].currentLogin = moment().format();
   save();
+}
+
+function logOut() {
+  loggedIn = null;
 }
 
 function getUserLastLogin(user) {
@@ -41,10 +48,19 @@ function addFavoriteArticle(user, article) {
   save();
 }
 
+function getFaveArticles() {
+  if (!loggedIn || !local.users[loggedIn].faves)
+    return [];
+  else
+    return local.users[loggedIn].faves;
+}
+
 export {
   userExists,
   addNewUser,
   setUserLogin,
+  logOut,
   getUserLastLogin,
   addFavoriteArticle,
+  getFaveArticles,
 };

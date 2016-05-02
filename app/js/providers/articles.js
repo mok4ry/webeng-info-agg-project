@@ -1,3 +1,5 @@
+import { getFaveArticles } from '../util/db';
+
 function usNews(callback) {
   const xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = () => {
@@ -45,9 +47,9 @@ function sports(callback) {
       const items = xmlHttp.responseXML.querySelectorAll('item');
       callback(Object.keys(items).map(i => {
         return {
-          title: items[i].querySelector('title').innerHTML,
+          title: items[i].querySelector('title').innerHTML.replace(/<!\[CDATA\[/, '').replace('\]\]>', ''),
           link: items[i].querySelector('link').innerHTML,
-          description: items[i].querySelector('description').innerHTML,
+          description: items[i].querySelector('description').innerHTML.replace(/<!\[CDATA\[/, '').replace('\]\]>', ''),
           pubDate: items[i].querySelector('pubDate').innerHTML,
         };
       }));

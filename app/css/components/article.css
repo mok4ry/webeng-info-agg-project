@@ -1,0 +1,41 @@
+.article-title-link {
+  text-decoration: none;
+}
+.article-link {
+  font-size: 0.9em;
+  font-style: italic;
+  overflow: hidden;
+  height: 0.9em;
+  display: inline-block;
+}
+.article-description {
+  overflow: hidden;
+  position: relative; 
+  line-height: 1.3em;
+  max-height: 5.2em; 
+  text-align: justify;  
+  margin: 0 -1em 0 0;
+  padding-right: 1em;
+}
+.article-description:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.article-description:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+.article > h1{
+  margin-bottom:0px;
+  font-size:25px;
+}
+ul {
+  list-style-type:none;
+}

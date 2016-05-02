@@ -1,15 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Article from '../components/Article';
+import { addFavoriteArticle } from '../util/db';
 
 function mapStateToProps(state) {
   return {
     articles: state.articles,
     sourceFilters: state.sourceFilters,
+    auth: state.auth,
   };
 }
 
 class Articles extends React.Component {
+
+  constructor() {
+    super();
+
+    this.favorite = this.favorite.bind(this);
+  }
+
+  favorite(article) {
+    addFavoriteArticle(this.props.auth.user, article);
+  }
 
   render() {
     const articles = [];
@@ -28,6 +40,9 @@ class Articles extends React.Component {
               <Article
                 key={a.title}
                 article={a}
+                showFave={!!this.props.auth.user}
+                favorited={false}
+                onFave={this.favorite}
               />
             );
           })}
